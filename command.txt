@@ -1,23 +1,13 @@
 全屏幕截图：Command + shift + 3
-
 自定地区屏幕截图：Command + shift + 4
-
 返回上一步：Command + Z
-
 返回下一步：Command + shift +Z
-
 Mac 强制结束应用程序：Command + option + esc
-
 Command+M: 最小化窗口
-
 Command+T: 在浏览器中打开新的选项卡
-
 Command+W: 关闭窗口
-
 Command+Q: 退出程序
-
 Command+Space. 来调用Spotlight
-
 程序窗口截图： Command+Shift+4+Space, 使用快捷键后会出现一个照相机的图标， 选择程序窗口，然后单击截图。
 Command-X   剪切所选项并拷贝到剪贴板。
 Command-C   将所选项拷贝到剪贴板。这同样适用于 Finder 中的文件。
