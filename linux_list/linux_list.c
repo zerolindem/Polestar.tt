@@ -1,5 +1,5 @@
-/**@brief Á·Ï°Ê¹ÓÃlinuxÄÚºËÁ´±í£¬¹¦ÄÜ°üÀ¨£º
-* ¶¨ÒåÁ´±í½á¹¹£¬´´½¨Á´±í¡¢²åÈë½Úµã¡¢É¾³ý½Úµã¡¢ÒÆ¶¯½Úµã¡¢±éÀú½Úµã
+/**@brief ç»ƒä¹ ä½¿ç”¨linuxå†…æ ¸é“¾è¡¨ï¼ŒåŠŸèƒ½åŒ…æ‹¬ï¼š
+* å®šä¹‰é“¾è¡¨ç»“æž„ï¼Œåˆ›å»ºé“¾è¡¨ã€æ’å…¥èŠ‚ç‚¹ã€åˆ é™¤èŠ‚ç‚¹ã€ç§»åŠ¨èŠ‚ç‚¹ã€éåŽ†èŠ‚ç‚¹
 *
 *@auther Anker @date 2013-12-15
 **/
@@ -8,13 +8,13 @@
 #include <stdlib.h>
 #include <errno.h>
 #include "linux_list.h"
-//¶¨Òåapp_infoÁ´±í½á¹¹
+//å®šä¹‰app_infoé“¾è¡¨ç»“æž„
 typedef struct application_info
 {
 	uint32_t  app_id;
 	uint32_t  up_flow;
 	uint32_t  down_flow;
-	struct    list_head app_info_node;//Á´±í½Úµã
+	struct    list_head app_info_node;//é“¾è¡¨èŠ‚ç‚¹
 }app_info;
 
 
@@ -36,7 +36,7 @@ static void for_each_app(const struct list_head *head)
 {
 	struct list_head *pos;
 	app_info *app;
-	//±éÀúÁ´±í
+	//éåŽ†é“¾è¡¨
 	list_for_each(pos, head)
 	{
 		app = list_entry(pos, app_info, app_info_node);
@@ -61,7 +61,7 @@ void destroy_app_list(struct list_head *head)
 
 int main()
 {
-	//´´½¨Ò»¸öapp_info
+	//åˆ›å»ºä¸€ä¸ªapp_info
 	app_info * app_info_list = (app_info*)malloc(sizeof(app_info));
 	app_info *app;
 	if (app_info_list == NULL)
@@ -70,10 +70,10 @@ int main()
 			errno, strerror(errno));
 		return -1;
 	}
-	//³õÊ¼»¯Á´±íÍ·²¿
+	//åˆå§‹åŒ–é“¾è¡¨å¤´éƒ¨
 	struct list_head *head = &app_info_list->app_info_node;
 	INIT_LIST_HEAD(head);
-	//²åÈëÈý¸öapp_info
+	//æ’å…¥ä¸‰ä¸ªapp_info
 	app = get_app_info(1001, 100, 200);
 	list_add_tail(&app->app_info_node, head);
 	app = get_app_info(1002, 80, 100);
@@ -82,11 +82,11 @@ int main()
 	list_add_tail(&app->app_info_node, head);
 	printf("After insert three app_info: \n");
 	for_each_app(head);
-	//½«µÚÒ»¸ö½ÚµãÒÆµ½Ä©Î²
+	//å°†ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ç§»åˆ°æœ«å°¾
 	printf("Move first node to tail:\n");
 	list_move_tail(head->next, head);
 	for_each_app(head);
-	//É¾³ý×îºóÒ»¸ö½Úµã
+	//åˆ é™¤æœ€åŽä¸€ä¸ªèŠ‚ç‚¹
 	printf("Delete the last node:\n");
 	list_del(head->prev);
 	for_each_app(head);

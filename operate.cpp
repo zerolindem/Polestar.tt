@@ -1,6 +1,6 @@
 #include <iostream>
-//C++Àï±àÒëÆ÷ÊÇ¸ù¾İÔËËã·ûÖØÔØº¯Êı²ÎÊı±íÀïÊÇ·ñ²åÈë¹Ø¼ü×ÖintÀ´Çø·ÖÇ°ÖÃ»¹ÊÇºóÖÃÔËËã
-class TDPoint//ÈıÎ¬×ø±ê
+//C++é‡Œç¼–è¯‘å™¨æ˜¯æ ¹æ®è¿ç®—ç¬¦é‡è½½å‡½æ•°å‚æ•°è¡¨é‡Œæ˜¯å¦æ’å…¥å…³é”®å­—intæ¥åŒºåˆ†å‰ç½®è¿˜æ˜¯åç½®è¿ç®—
+class TDPoint//ä¸‰ç»´åæ ‡
 {
 private:
 	int x;
@@ -13,10 +13,10 @@ public:
 		this->y=y;
 		this->z=z;
 	}
-	TDPoint operator++();//³ÉÔ±º¯ÊıÖØÔØÇ°ÖÃÔËËã·û++
-	TDPoint operator++(int);//³ÉÔ±º¯ÊıÖØÔØºóÖÃÔËËã·û++
-	friend TDPoint operator++(TDPoint& point);//ÓÑÔªº¯ÊıÖØÔØÇ°ÖÃÔËËã·û++
-	friend TDPoint operator++(TDPoint& point,int);//ÓÑÔªº¯ÊıÖØÔØºóÖÃÔËËã·û++
+	TDPoint operator++();//æˆå‘˜å‡½æ•°é‡è½½å‰ç½®è¿ç®—ç¬¦++
+	TDPoint operator++(int);//æˆå‘˜å‡½æ•°é‡è½½åç½®è¿ç®—ç¬¦++
+	friend TDPoint operator++(TDPoint& point);//å‹å…ƒå‡½æ•°é‡è½½å‰ç½®è¿ç®—ç¬¦++
+	friend TDPoint operator++(TDPoint& point,int);//å‹å…ƒå‡½æ•°é‡è½½åç½®è¿ç®—ç¬¦++
 	void showPoint();
 };
 
@@ -25,7 +25,7 @@ TDPoint TDPoint::operator++()
 	++this->x;
 	++this->y;
 	++this->z;
-	return*this;//·µ»Ø×ÔÔöºóµÄ¶ÔÏó
+	return*this;//è¿”å›è‡ªå¢åçš„å¯¹è±¡
 }
 
 TDPoint TDPoint::operator++(int)
@@ -34,7 +34,7 @@ TDPoint TDPoint::operator++(int)
 	this->x++;
 	this->y++;
 	this->z++;
-	return point;//·µ»Ø×ÔÔöÇ°µÄ¶ÔÏó
+	return point;//è¿”å›è‡ªå¢å‰çš„å¯¹è±¡
 }
 
 TDPoint operator++(TDPoint& point)
@@ -42,7 +42,7 @@ TDPoint operator++(TDPoint& point)
 	++point.x;
 	++point.y;
 	++point.z;
-	return point;//·µ»Ø×ÔÔöºóµÄ¶ÔÏó
+	return point;//è¿”å›è‡ªå¢åçš„å¯¹è±¡
 }
 
 TDPoint operator++(TDPoint& point,int)
@@ -51,7 +51,7 @@ TDPoint operator++(TDPoint& point,int)
 	point.x++;
 	point.y++;
 	point.z++;
-	return point1;//·µ»Ø×ÔÔöÇ°µÄ¶ÔÏó
+	return point1;//è¿”å›è‡ªå¢å‰çš„å¯¹è±¡
 }
 
 void TDPoint::showPoint()
@@ -62,17 +62,17 @@ void TDPoint::showPoint()
 int main()
 {
 	TDPoint point(1,1,1);
-	point.operator++();//»ò++point
-	point.showPoint();//Ç°ÖÃ++ÔËËã½á¹û
+	point.operator++();//æˆ–++point
+	point.showPoint();//å‰ç½®++è¿ç®—ç»“æœ
 
-	point=point.operator++(0);//»òpoint=point++
-	point.showPoint();//ºóÖÃ++ÔËËã½á¹û
+	point=point.operator++(0);//æˆ–point=point++
+	point.showPoint();//åç½®++è¿ç®—ç»“æœ
 
-	operator++(point);//»ò++point;
-	point.showPoint();//Ç°ÖÃ++ÔËËã½á¹û
+	operator++(point);//æˆ–++point;
+	point.showPoint();//å‰ç½®++è¿ç®—ç»“æœ
 
-	point=operator++(point,0);//»òpoint=point++;
-	point.showPoint();//ºóÖÃ++ÔËËã½á¹û
+	point=operator++(point,0);//æˆ–point=point++;
+	point.showPoint();//åç½®++è¿ç®—ç»“æœ
 
 	return 0;
 }
